@@ -7,17 +7,10 @@ public class ForcedCards {
     private static int[] bestPlay(int[] deck) {
         int[] answer = new int[3];
 
-		/*
-		 * Insert your code in here
-		 *
-		 * Your code should construct and return an array of length 3, where the
-		 * first number indicates the best starting point, the second number indicates
-		 * the best end point, and the third number is the total value.
-		 *
-		 */
-
-
-		/* End */
+        int findHigh[] = new int[deck.length-1];
+        for (int i=0; i<numOfCards; i++) {
+            cards[i] = sc.nextInt();
+        }
         return answer;
     }
 
@@ -43,5 +36,7 @@ public class ForcedCards {
 
         sc.close();
     }
+
+
 
 }
