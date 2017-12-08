@@ -17,22 +17,23 @@ public class ForcedCards {
 
 
         for (int i=0; i<deck.length; i++) { //goes through every card
-            for (int j = deck.length; j != 0; j--){ //goes through each possibility of cards
+            for (int j = deck.length; j > 0; j--){ //goes through each possibility of cards
                 for(int k = 0; k < j; k++){  //finds total??
                     recentTotal = recentTotal + deck[k];
-                    if (recentTotal > previousTotal) {
-                        start = deck[j-1];
+                    total = recentTotal;
+                    System.out.println(total);
+                    /*if (recentTotal > previousTotal) {
+                        start = deck[j];
                         end = deck[k];
                         total = recentTotal;
-
-                        answer[0]=start;
-                        answer[1]=end;
-                        answer[2]=total;
-                    }
+                    }*/
                 }
             }
         }
 
+        answer[0]=start;
+        answer[1]=end;
+        answer[2]=total;
         return answer;
     }
 
