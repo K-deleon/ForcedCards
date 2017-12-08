@@ -14,19 +14,29 @@ public class ForcedCards {
         int end = 0;
         int total = 0;
 
+        int weirdDivide = 1;
 
 
-        for (int i=0; i<deck.length; i++) { //goes through every card
-            for (int j = deck.length; j > 0; j--){ //goes through each possibility of cards
-                for(int k = 0; k < j; k++){  //finds total??
-                    recentTotal = recentTotal + deck[k];
-                    total = recentTotal;
-                    System.out.println(total);
-                    /*if (recentTotal > previousTotal) {
-                        start = deck[j];
-                        end = deck[k];
-                        total = recentTotal;
-                    }*/
+
+        for (int i=0; i < deck.length; i++) { //start point
+            answer[0] = i;
+            for (int j = i; j < deck.length; j++){ //goes through every card after start point
+                recentTotal = recentTotal + deck[j];
+                total = recentTotal;
+                //for(int k = i + 1; k < deck.length; k++){  //implement subtraction
+                    //recentTotal = recentTotal + deck[k];
+                    //if (k != 0) {
+                      //  weirdDivide = (k+2)*(k+1); //goes through 14 times before repeating
+                    //}
+                    //System.out.println(weirdDivide);
+                    //total = recentTotal;
+                    //System.out.println(total);
+                    if (recentTotal > previousTotal) {
+                        //start = deck[j];
+                        //end = deck[k];
+
+                        //total = recentTotal;
+                    //}
                 }
             }
         }
