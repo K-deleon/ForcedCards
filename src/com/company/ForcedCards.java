@@ -6,6 +6,7 @@ public class ForcedCards {
 
     private static int[] bestPlay(int[] deck) {
         int[] answer = new int[3];
+        int[] totalTotals = new int[1000];
 
         int recentTotal = 0;
         int previousTotal = 0;
@@ -17,34 +18,40 @@ public class ForcedCards {
         int weirdDivide = 1;
 
 
-
-        for (int i=0; i < deck.length; i++) { //start point
-            answer[0] = i;
-            for (int j = i; j < deck.length; j++){ //goes through every card after start point
+        /*for (int i = 0; i < deck.length; i++) { //start point
+            end = i;
+            for (int j = i; j < deck.length; j++) { //goes through every card after start point
                 recentTotal = recentTotal + deck[j];
-                total = recentTotal;
-                //for(int k = i + 1; k < deck.length; k++){  //implement subtraction
-                    //recentTotal = recentTotal + deck[k];
-                    //if (k != 0) {
-                      //  weirdDivide = (k+2)*(k+1); //goes through 14 times before repeating
-                    //}
+                for (int k = i + 1; k < deck.length; k++) {  //implement subtraction
+                    recentTotal = recentTotal + deck[k];
+                    if (k != 0) {
+                        weirdDivide = (k + 2) * (k + 1); //goes through 14 times before repeating
+                    }
                     //System.out.println(weirdDivide);
-                    //total = recentTotal;
+                    total = recentTotal;
                     //System.out.println(total);
                     if (recentTotal > previousTotal) {
-                        //start = deck[j];
+                        start = 0;
                         //end = deck[k];
 
                         //total = recentTotal;
-                    //}
+                        }
+                    }
                 }
+            }*/
+
+        start = 0;
+        for (int k = start; k < deck.length; k++) {
+            for (int j = start; j < deck.length; j++) {
+                total = (recentTotal + deck[j]);
+                totalTotals[k] = total;
             }
         }
-
-        answer[0]=start;
-        answer[1]=end;
-        answer[2]=total;
-        return answer;
+            total = recentTotal/(deck.length);
+            answer[0] = start;
+            answer[1] = end;
+            answer[2] = total;
+            return answer;
     }
 
 
@@ -69,7 +76,5 @@ public class ForcedCards {
 
         sc.close();
     }
-
-
 
 }
