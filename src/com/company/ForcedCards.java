@@ -7,10 +7,32 @@ public class ForcedCards {
     private static int[] bestPlay(int[] deck) {
         int[] answer = new int[3];
 
-        int findHigh[] = new int[deck.length-1];
-        for (int i=0; i<numOfCards; i++) {
-            cards[i] = sc.nextInt();
+        int recentTotal = 0;
+        int previousTotal = 0;
+
+        int start = 0;
+        int end = 0;
+        int total = 0;
+
+
+
+        for (int i=0; i<deck.length; i++) { //goes through every card
+            for (int j = deck.length; j != 0; j--){ //goes through each possibility of cards
+                for(int k = 0; k < j; k++){  //finds total??
+                    recentTotal = recentTotal + deck[k];
+                    if (recentTotal > previousTotal) {
+                        start = deck[j-1];
+                        end = deck[k];
+                        total = recentTotal;
+
+                        answer[0]=start;
+                        answer[1]=end;
+                        answer[2]=total;
+                    }
+                }
+            }
         }
+
         return answer;
     }
 
